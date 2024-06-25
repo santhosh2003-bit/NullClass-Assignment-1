@@ -1,6 +1,8 @@
 export const getPlans = () => async (dispatch) => {
   try {
-    await fetch("http://localhost:5000/api/plans/plans", { method: "GET" })
+    await fetch("https://nullclass-assignment-1.onrender.com/api/plans/plans", {
+      method: "GET",
+    })
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
@@ -16,11 +18,14 @@ export const getPlans = () => async (dispatch) => {
 
 export const createPlan = (planData) => async (dispatch) => {
   try {
-    const response = await fetch("http://localhost:5000/api/plans/plans", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(planData),
-    });
+    const response = await fetch(
+      "https://nullclass-assignment-1.onrender.com/api/plans/plans",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(planData),
+      }
+    );
     const data = await response.json();
 
     if (response.ok) {

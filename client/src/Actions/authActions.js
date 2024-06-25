@@ -1,11 +1,14 @@
 export const register = (userData) => async (dispatch) => {
   try {
     // const config = { headers: { "Content-Type": "application/json" } };
-    await fetch("http://localhost:5000/api/auth/register", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(userData),
-    })
+    await fetch(
+      "https://nullclass-assignment-1.onrender.com/api/auth/register",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(userData),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -23,7 +26,7 @@ export const register = (userData) => async (dispatch) => {
 
 export const login = (userData) => async (dispatch) => {
   try {
-    await fetch("http://localhost:5000/api/auth/login", {
+    await fetch("https://nullclass-assignment-1.onrender.com/api/auth/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(userData),

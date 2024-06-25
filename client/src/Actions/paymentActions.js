@@ -3,14 +3,17 @@ export const subscribePlan =
     const { auth } = getState();
     console.log(auth);
     try {
-      await fetch("http://localhost:5000/api/payments/subscribe", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${auth.token}`,
-        },
-        body: JSON.stringify({ planId, paymentMethodId }),
-      })
+      await fetch(
+        "https://nullclass-assignment-1.onrender.com/api/payments/subscribe",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${auth.token}`,
+          },
+          body: JSON.stringify({ planId, paymentMethodId }),
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           console.log(data);

@@ -21,7 +21,7 @@ const PlanList = () => {
 
   const handleSelectPlan = async (planId) => {
     const response = await fetch(
-      "http://localhost:5000/api/payments/subscribe",
+      "https://nullclass-assignment-1.onrender.com/api/payments/subscribe",
       {
         method: "POST",
         headers: {
