@@ -1,0 +1,5 @@
+.background_image {
+  background-image: url("../src/images/background.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
