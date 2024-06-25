@@ -1,6 +1,7 @@
 const User = require("../models/User");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
+require("dotenv").config();
 const register = async (req, res) => {
   const { username, email, password } = req.body;
   try {
@@ -9,7 +10,7 @@ const register = async (req, res) => {
       return res.status(400).json({ message: "User Already Exists" });
     }
     const user = await User.create({ username, email, password });
-    const token = jwt.sign({ id: user.id }, "thskjasjjadsjass", {
+    const token = jwt.sign({ id: user.id }, process.env.JWT_Token, {
       expiresIn: "30days",
     });
     res.status(201).json({ token, user });
